@@ -1,5 +1,6 @@
-.card__info {
+.card__caption {
     height: 21.9%;
+    max-width: 100%;
     background-color: white;
     border-radius: 0 0 10px 10px;
     display: flex;

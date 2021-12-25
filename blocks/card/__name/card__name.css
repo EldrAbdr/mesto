@@ -1,0 +1,23 @@
+.card__name {
+    margin: 25px 0 31px 21px;
+    padding: 0;
+    color: black;
+    font-size: 24px;
+    max-width: 13vw;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 700px) {
+    .card__name {
+        max-width: 25vw;
+    }
+}
+
+@media screen and (max-width: 544px) {
+    .card__name {
+        max-width: 70%;
+    }
+}
