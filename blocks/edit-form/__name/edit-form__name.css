@@ -3,10 +3,10 @@
     width: 100%;
     border: none;
     border-bottom: 1px solid #d0d2d3;
-    margin: 40px auto 30px auto;
+    margin: 40px auto 35px auto;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    padding: 0;
+    padding: 0 0 6px 0;
 }
 
 .edit-form__name:focus {

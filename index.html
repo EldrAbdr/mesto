@@ -20,14 +20,13 @@
             </div>
             <button class="profile__edit-button hover-transparent"></button>
         </div>
-        <input type="button" class="profile__add-button hover-transparent">
+        <button class="profile__add-button hover-transparent"></button>
     </section>
     <section class="cards">
         <figure class="card">
             <img class="card__image" src="images/cards_images/sterlitamak-shikhans.png" alt="Карачаевск">
-            <!--Стерлитамакские шиханы-->
             <div class="card__caption">
-                <p class="card__name">Карачаевск</p><!--Стерлитамакские шиханы-->
+                <p class="card__name">Карачаевск</p>
                 <button class="card__like hover-transparent"></button>
             </div>
         </figure>
@@ -72,16 +71,16 @@
     <p class="footer__copyright">© 2021 Mesto Russia</p>
 </footer>
 <section class="overlay overlay_active">
-    <div class="edit-form">
+    <form action="" method="get" class="edit-form">
         <button class="edit-form__close-button hover-transparent"></button>
-        <form action="" method="get" class="profile-edit-form">
-            <label class="edit-form__inputs">Редактировать профиль
-                <input type="text" placeholder="Жак-Ив Кусто" class="edit-form__name">
-                <input type="text" placeholder="Исследователь океана" class="edit-form__about">
-            </label>
-            <input type="submit"  value = "Сохранить" class="edit-form__save-button">
-        </form>
-    </div>
+        <label class="edit-form__inputs">Редактировать профиль
+            <input type="text" placeholder="Жак-Ив Кусто" class="edit-form__name">
+        </label>
+        <label class="edit-form__about-field">
+            <input type="text" placeholder="Исследователь океана" class="edit-form__about">
+        </label>
+        <input type="submit" value="Сохранить" class="edit-form__save-button">
+    </form>
 </section>
 <script src="scripts/index.js"></script>
 </body>

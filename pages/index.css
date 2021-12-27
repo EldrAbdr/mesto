@@ -23,11 +23,11 @@
 @import url('../blocks/card/__like/_black/card__like_black.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
-@import url('../blocks/profile-edit-form/profile-edit-form.css');
 @import url('../blocks/overlay/overlay.css');
 @import url('../blocks/overlay/_active/overlay_active.css');
 @import url('../blocks/edit-form/edit-form.css');
 @import url('../blocks/edit-form/__name/edit-form__name.css');
+@import url('../blocks/edit-form/__about-field/edit-form__about-field.css');
 @import url('../blocks/edit-form/__about/edit-form__about.css');
 @import url('../blocks/edit-form/__close-button/edit-form__close-button.css');
 @import url('../blocks/edit-form/__save-button/edit-form__save-button.css');

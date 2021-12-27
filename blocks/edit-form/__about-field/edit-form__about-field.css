@@ -1,0 +1,10 @@
+.edit-form__about-field {
+    max-width: 358px;
+    width: 100%;
+}
+
+@media screen and (max-width: 570px) {
+    .edit-form__about-field {
+        max-width: 238px;
+    }
+}
