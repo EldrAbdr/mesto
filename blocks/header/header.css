@@ -4,8 +4,14 @@
     min-height: 75px;
     margin: 45px auto 0 auto;
     border-bottom: 1px solid #545454;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
 }
 

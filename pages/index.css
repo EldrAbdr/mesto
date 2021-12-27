@@ -11,7 +11,7 @@
 @import url('../blocks/profile/__info/profile__info.css');
 @import url('../blocks/profile/__add-button/profile__add-button.css');
 @import url('../blocks/profile/__avatar/profile__avatar.css');
-@import url('../blocks/profile/__description/profile__description.css');
+@import url('../blocks/profile/__about/profile__about.css');
 @import url('../blocks/profile/__edit-button/profile__edit-button.css');
 @import url('../blocks/profile/__name/profile__name.css');
 @import url('../blocks/cards/cards.css');
@@ -20,6 +20,15 @@
 @import url('../blocks/card/__image/card__image.css');
 @import url('../blocks/card/__caption/card__caption.css');
 @import url('../blocks/card/__like/card__like.css');
+@import url('../blocks/card/__like/_black/card__like_black.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
-/*разобраться с кнопкой лайка....rem для шрифта card_name*/
+@import url('../blocks/profile-edit-form/profile-edit-form.css');
+@import url('../blocks/overlay/overlay.css');
+@import url('../blocks/overlay/_active/overlay_active.css');
+@import url('../blocks/edit-form/edit-form.css');
+@import url('../blocks/edit-form/__name/edit-form__name.css');
+@import url('../blocks/edit-form/__about/edit-form__about.css');
+@import url('../blocks/edit-form/__close-button/edit-form__close-button.css');
+@import url('../blocks/edit-form/__save-button/edit-form__save-button.css');
+@import url('../blocks/edit-form/__inputs/edit-form__inputs.css');

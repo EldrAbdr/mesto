@@ -1,0 +1,30 @@
+.edit-form__inputs {
+    color: #000;
+    font-size: 24px;
+    font-weight: 900;
+    padding: 0;
+    margin: 34px auto 0 auto;
+    max-width: 358px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 570px) {
+    .edit-form__inputs {
+        max-width: 238px;
+        font-size: 18px;
+        margin: 24px auto 0 auto;
+    }
+}

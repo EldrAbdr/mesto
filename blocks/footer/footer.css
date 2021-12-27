@@ -4,6 +4,8 @@
     width: 100%;
     display: flex;
     justify-content: start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
 }
 
 @media screen and (max-width: 970px) {

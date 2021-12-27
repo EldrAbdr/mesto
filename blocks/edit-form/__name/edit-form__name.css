@@ -1,0 +1,36 @@
+.edit-form__name {
+    max-width: 358px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d0d2d3;
+    margin: 40px auto 30px auto;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0;
+}
+
+.edit-form__name:focus {
+    outline: none;
+}
+
+.edit-form__name::-webkit-input-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}
+.edit-form__name::-moz-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}
+.edit-form__name:-moz-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 570px) {
+    .edit-form__name {
+        margin: 75px auto 35px auto;
+    }
+}

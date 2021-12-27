@@ -3,21 +3,24 @@
     padding: 0;
     color: black;
     font-size: 24px;
-    max-width: 13vw;
+    max-width: 192px;
+    width: 14vw;
     font-weight: 900;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    -o-text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 700px) {
     .card__name {
-        max-width: 25vw;
+        max-width: 70%;
+        min-width: 150px;
     }
 }
 
 @media screen and (max-width: 544px) {
     .card__name {
-        max-width: 70%;
+        width: 70%;
     }
 }

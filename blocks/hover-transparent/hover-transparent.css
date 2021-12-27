@@ -1,6 +1,9 @@
 .hover-transparent {
+    -webkit-transition: opacity 0.5ms;
+    -o-transition: opacity 0.5ms;
     transition: opacity 0.5ms;
 }
+
 
 .hover-transparent:hover {
     opacity: 0.5;
