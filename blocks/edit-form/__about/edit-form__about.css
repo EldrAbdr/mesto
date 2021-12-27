@@ -1,0 +1,29 @@
+.edit-form__about {
+    max-width: 358px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d0d2d3;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.edit-form__about:focus {
+    outline: none;
+}
+
+.edit-form__about::-webkit-input-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}
+.edit-form__about::-moz-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}
+.edit-form__about:-moz-placeholder {
+    color:#000;
+    font-size: 14px;
+    font-weight: 400;
+}

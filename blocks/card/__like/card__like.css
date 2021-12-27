@@ -6,7 +6,4 @@
     margin: 0 20px 0 20px;
 }
 
-.card__like:active {
-    background-image: url('../../../images/like_button-black.svg');
-}
 
