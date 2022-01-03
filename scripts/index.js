@@ -3,10 +3,11 @@ const editButton = document.querySelector('.profile__edit-button');
 const overlayActiveMod = ('overlay_active');
 const closeButton = document.querySelector('.edit-form__close-button');
 const saveButton = document.querySelector('.edit-form__save-button');
-let nameField = document.querySelector('.edit-form__name');
-let aboutField = document.querySelector('.edit-form__about');
+const inputsForm = document.querySelector('.edit-form');
+let nameInput = document.querySelector('.edit-form__input_name');
+let professionInput = document.querySelector('.edit-form__input_profession');
 let profileName = document.querySelector('.profile__name');
-let profileAbout = document.querySelector('.profile__about');
+let profileProfession = document.querySelector('.profile__profession');
 
 function openWindow() {
     copyProfileDataToInputs()
@@ -19,8 +20,8 @@ function closeWindow() {
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
-    profileName.textContent = nameField.value;
-    profileAbout.textContent = aboutField.value;
+    profileName.textContent = nameInput.value;
+    profileProfession.textContent = professionInput.value;
     closeWindow();
 }
 
@@ -38,11 +39,11 @@ function handleKeydown(evt) {
 }
 
 function copyProfileDataToInputs() {
-    nameField.placeholder = profileName.textContent;
-    aboutField. placeholder = profileAbout.textContent;
+    nameInput.value = profileName.textContent;
+    professionInput.value = profileProfession.textContent;
 }
 
-saveButton.addEventListener('submit', handleFormSubmit);
+inputsForm.addEventListener('submit', handleFormSubmit);
 editButton.addEventListener('click', openWindow);
 closeButton.addEventListener('click', closeWindow);
 document.addEventListener('click', handleClick);

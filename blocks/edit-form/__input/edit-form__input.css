@@ -1,36 +1,31 @@
-.edit-form__name {
+.edit-form__input {
     max-width: 358px;
     width: 100%;
     border: none;
     border-bottom: 1px solid #d0d2d3;
-    margin: 40px auto 35px auto;
+    margin: 30px auto 5px auto;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 0 0 6px 0;
+    font-size: 14px;
 }
 
-.edit-form__name:focus {
+.edit-form__input:focus {
     outline: none;
 }
 
-.edit-form__name::-webkit-input-placeholder {
+.edit-form__input::-webkit-input-placeholder {
     color:#000;
     font-size: 14px;
     font-weight: 400;
 }
-.edit-form__name::-moz-placeholder {
+.edit-form__input::-moz-placeholder {
     color:#000;
     font-size: 14px;
     font-weight: 400;
 }
-.edit-form__name:-moz-placeholder {
+.edit-form__input:-moz-placeholder {
     color:#000;
     font-size: 14px;
     font-weight: 400;
-}
-
-@media screen and (max-width: 570px) {
-    .edit-form__name {
-        margin: 75px auto 35px auto;
-    }
 }

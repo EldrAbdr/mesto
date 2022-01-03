@@ -7,7 +7,7 @@
     font-size: 18px;
     font-weight: 400;
     padding: 0;
-    margin-bottom: 37px;
+    margin: 45px auto 0 auto;
     border: none;
     box-sizing: border-box;
     cursor: pointer;
@@ -17,11 +17,11 @@
     opacity: .8;
 }
 
-
 @media screen and (max-width: 570px) {
     .edit-form__save-button {
         max-width: 238px;
-        margin: 0 auto 25px auto;
+        height: 46px;
+        margin: 42px auto 0 auto;
         font-size: 14px;
     }
 }
