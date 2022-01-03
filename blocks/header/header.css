@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 75px;
     margin: 45px auto 0 auto;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid rgba(54, 54, 54, 0.5);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -19,14 +19,12 @@
     .header {
         margin: 28px auto 0 auto;
         max-width: 85%;
-        width: 100%;
     }
 }
 
 @media screen and (max-width: 615px) {
     .header {
         max-width: 100%;
-        width: 100%;
         margin-top: 28px;
         min-height: 56px;
         max-height: 56px;

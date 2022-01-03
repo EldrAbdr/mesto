@@ -8,7 +8,9 @@
 </head>
 <body class="page">
 <header class="header">
+    <a href="#" class="hover-transparent">
     <img class="header__logo" src="images/logo.svg" alt="Место">
+    </a>
 </header>
 <main class="container">
     <section class="profile">
@@ -18,70 +20,71 @@
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <p class="profile__about">Исследователь океана</p>
             </div>
-            <button class="profile__edit-button hover-transparent"></button>
+            <button type="button" aria-label="редактировать профиль" class="profile__edit-button hover-transparent"></button>
         </div>
-        <button class="profile__add-button hover-transparent"></button>
+        <button type="button" aria-label="добавить карточку" class="profile__add-button hover-transparent"></button>
     </section>
     <section class="cards">
-        <figure class="card">
+        <article class="card">
             <img class="card__image" src="images/cards_images/sterlitamak-shikhans.png" alt="Карачаевск">
             <div class="card__caption">
-                <p class="card__name">Карачаевск</p>
+                <h2 class="card__name">Карачаевск</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
-        <figure class="card">
+        </article>
+        <article class="card">
             <img class="card__image" src="images/cards_images/shulgan-tash.png" alt="Шульган таш">
             <div class="card__caption">
-                <p class="card__name">Шульган таш</p>
+                <h2 class="card__name">Шульган таш</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
-        <figure class="card">
+        </article>
+        <article class="card">
             <img class="card__image" src="images/cards_images/arkaim.png" alt="Аркаим">
             <div class="card__caption">
-                <p class="card__name">Аркаим</p>
+                <h2 class="card__name">Аркаим</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
-        <figure class="card">
+        </article>
+        <article class="card">
             <img class="card__image" src="images/cards_images/shikhan.png" alt="Аракульский шихан">
             <div class="card__caption">
-                <p class="card__name">Аракульский шихан</p>
+                <h2 class="card__name">Аракульский шихан</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
-        <figure class="card">
+        </article>
+        <article class="card">
             <img class="card__image" src="images/cards_images/kaolinoviy_karer.png" alt="Уральское бали">
             <div class="card__caption">
-                <p class="card__name">Уральское бали</p>
+                <h2 class="card__name">Уральское бали</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
-        <figure class="card">
+        </article>
+        <article class="card">
             <img class="card__image" src="images/cards_images/zyuratkul-national-park.png" alt="Зюраткуль">
             <div class="card__caption">
-                <p class="card__name">Зюраткуль</p>
+                <h2 class="card__name">Зюраткуль</h2>
                 <button class="card__like hover-transparent"></button>
             </div>
-        </figure>
+        </article>
     </section>
 </main>
 <footer class="footer">
     <p class="footer__copyright">© 2021 Mesto Russia</p>
 </footer>
-<section class="overlay overlay_active">
-    <form action="#" method="get" class="edit-form">
-        <button class="edit-form__close-button hover-transparent"></button>
-        <label class="edit-form__inputs">Редактировать профиль
-            <input type="text" placeholder="Жак-Ив Кусто" class="edit-form__name">
-        </label>
-        <label class="edit-form__about-field">
-            <input type="text" placeholder="Исследователь океана" class="edit-form__about">
-        </label>
-        <input type="submit" value="Сохранить" class="edit-form__save-button">
+<article class="overlay">
+    <form action="#" method="get" class="edit-form" name="profile-edit-form">
+        <button type="button" class="edit-form__close-button hover-transparent"></button>
+        <div class="edit-form__inputs">
+            <h2 class="edit-form__title">Редактировать профиль</h2>
+            <input type="text" placeholder="Имя" class="edit-form__name" name="name">
+        </div>
+        <div class="edit-form__about-field">
+            <input type="text" placeholder="Профессия" class="edit-form__about" name="about">
+        </div>
+        <button type="submit" class="edit-form__save-button">Сохранить</button>
     </form>
-</section>
+</article>
 <script src="scripts/index.js"></script>
 </body>
 </html>

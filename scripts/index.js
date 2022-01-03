@@ -1,47 +1,53 @@
+const overlay = document.querySelector('.overlay');
 const editButton = document.querySelector('.profile__edit-button');
-const overlayActiveMod = document.querySelector('.overlay_active');
+const overlayActiveMod = ('overlay_active');
 const closeButton = document.querySelector('.edit-form__close-button');
+const saveButton = document.querySelector('.edit-form__save-button');
 let nameField = document.querySelector('.edit-form__name');
 let aboutField = document.querySelector('.edit-form__about');
-const saveButton = document.querySelector('.edit-form__save-button');
-
-editButton.addEventListener('click', openWindow);
-closeButton.addEventListener('click', closeWindow);
-
-document.addEventListener('click', function (event) {
-    let target = event.target;
-    if (target.classList.contains('overlay')) {
-        closeWindow();
-    }
-    if ((target.classList.contains('card__like'))) {
-        if (target.classList.contains('card__like_black')) {
-            target.classList.remove('card__like_black');
-        } else {
-            target.classList.add('card__like_black');
-        }
-    }
-});
-
-saveButton.addEventListener('submit', function (evt) {
-    evt.preventDefault();
-    document.querySelector('.profile__name').textContent = nameField.value;
-    document.querySelector('.profile__about').textContent = aboutField.value;
-    closeWindow();
-});
-
-document.addEventListener('keydown', function (event) {
-    if (event.code === 'Escape') {
-        closeWindow()
-    }
-});
+let profileName = document.querySelector('.profile__name');
+let profileAbout = document.querySelector('.profile__about');
 
 function openWindow() {
-    overlayActiveMod.style.display = 'block';
-    document.querySelector('.page').style.overflow = 'hidden';
+    copyProfileDataToInputs()
+    overlay.classList.add(overlayActiveMod);
 }
 
 function closeWindow() {
-    overlayActiveMod.style.display = 'none';
-    document.querySelector('.page').style.overflow = '';
+    overlay.classList.remove(overlayActiveMod);
 }
+
+function handleFormSubmit (evt) {
+    evt.preventDefault();
+    profileName.textContent = nameField.value;
+    profileAbout.textContent = aboutField.value;
+    closeWindow();
+}
+
+function handleClick(evt) {
+    let target = evt.target;
+    if (target.classList.contains('overlay')) {
+        closeWindow();
+    }
+}
+
+function handleKeydown(evt) {
+    if (evt.code === 'Escape') {
+        closeWindow()
+    }
+}
+
+function copyProfileDataToInputs() {
+    nameField.placeholder = profileName.textContent;
+    aboutField. placeholder = profileAbout.textContent;
+}
+
+saveButton.addEventListener('submit', handleFormSubmit);
+editButton.addEventListener('click', openWindow);
+closeButton.addEventListener('click', closeWindow);
+document.addEventListener('click', handleClick);
+document.addEventListener('keydown', handleKeydown);
+
+
+
 
