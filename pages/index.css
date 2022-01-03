@@ -1,5 +1,5 @@
-@import url('../style/normalize.css');
-@import url('../vendor/fonts.css');
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts/fonts.css');
 @import url('../blocks/document/document.css');
 @import url('../blocks/hover-transparent/hover-transparent.css');
 @import url('../blocks/page/page.css');
@@ -26,6 +26,7 @@
 @import url('../blocks/overlay/overlay.css');
 @import url('../blocks/overlay/_active/overlay_active.css');
 @import url('../blocks/edit-form/edit-form.css');
+@import url('../blocks/edit-form/__title/edit-form__title.css');
 @import url('../blocks/edit-form/__name/edit-form__name.css');
 @import url('../blocks/edit-form/__about-field/edit-form__about-field.css');
 @import url('../blocks/edit-form/__about/edit-form__about.css');

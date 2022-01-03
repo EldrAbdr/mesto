@@ -2,6 +2,7 @@
     background-image: url('../../../images/close_Icon.svg');
     background-size: cover;
     background-position: center;
+    background-color: transparent;
     width: 32px;
     height: 32px;
     position: absolute;
@@ -10,12 +11,11 @@
     padding: 0;
     margin: 0;
     border: none;
-    background-color: black;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 570px) {
     .edit-form__close-button {
-        top: -38px;
         right: 0;
         width: 20px;
         height: 20px;
