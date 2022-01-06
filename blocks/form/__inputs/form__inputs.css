@@ -1,4 +1,4 @@
-.edit-form__inputs {
+.form__inputs {
     color: #000;
     font-size: 24px;
     font-weight: 900;
@@ -22,7 +22,7 @@
 }
 
 @media screen and (max-width: 570px) {
-    .edit-form__inputs {
+    .form__inputs {
         max-width: 238px;
         font-size: 18px;
         margin: 24px auto 0 auto;

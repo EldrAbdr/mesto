@@ -16,6 +16,7 @@
 @import url('../blocks/profile/__name/profile__name.css');
 @import url('../blocks/cards/cards.css');
 @import url('../blocks/card/card.css');
+@import url('../blocks/card/__delete-button/card__delete-button.css');
 @import url('../blocks/card/__name/card__name.css');
 @import url('../blocks/card/__image/card__image.css');
 @import url('../blocks/card/__caption/card__caption.css');
@@ -25,9 +26,9 @@
 @import url('../blocks/footer/__copyright/footer__copyright.css');
 @import url('../blocks/overlay/overlay.css');
 @import url('../blocks/overlay/_active/overlay_active.css');
-@import url('../blocks/edit-form/edit-form.css');
-@import url('../blocks/edit-form/__title/edit-form__title.css');
-@import url('../blocks/edit-form/__input/edit-form__input.css');
-@import url('../blocks/edit-form/__close-button/edit-form__close-button.css');
-@import url('../blocks/edit-form/__save-button/edit-form__save-button.css');
-@import url('../blocks/edit-form/__inputs/edit-form__inputs.css');
+@import url('../blocks/form/form.css');
+@import url('../blocks/form/__title/form__title.css');
+@import url('../blocks/form/__input/form__input.css');
+@import url('../blocks/form/__close-button/form__close-button.css');
+@import url('../blocks/form/__submit-button/form__submit-button.css');
+@import url('../blocks/form/__inputs/form__inputs.css');

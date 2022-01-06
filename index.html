@@ -20,12 +20,13 @@
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <p class="profile__profession">Исследователь океана</p>
             </div>
-            <button type="button" aria-label="редактировать профиль" class="profile__edit-button hover-transparent"></button>
+            <button type="button" aria-label="редактировать профиль"
+                    class="profile__edit-button hover-transparent"></button>
         </div>
         <button type="button" aria-label="добавить карточку" class="profile__add-button hover-transparent"></button>
     </section>
     <section class="cards">
-        <article class="card">
+        <!--<article class="card">
             <img class="card__image" src="images/cards_images/sterlitamak-shikhans.png" alt="Карачаевск">
             <div class="card__caption">
                 <h2 class="card__name">Карачаевск</h2>
@@ -66,21 +67,35 @@
                 <h2 class="card__name">Зюраткуль</h2>
                 <button type="button" class="card__like hover-transparent"></button>
             </div>
-        </article>
+        </article>-->
     </section>
 </main>
 <footer class="footer">
     <p class="footer__copyright">© 2021 Mesto Russia</p>
 </footer>
 <article class="overlay">
-    <form action="#" method="get" class="edit-form" name="profile-edit-form">
-        <button type="button" class="edit-form__close-button hover-transparent"></button>
-        <div class="edit-form__inputs">
-            <h2 class="edit-form__title">Редактировать профиль</h2>
-            <input type="text" placeholder="Имя" class="edit-form__input edit-form__input_name" name="name" value="">
-            <input type="text" placeholder="Профессия" class="edit-form__input edit-form__input_profession" name="profession" value="">
+    <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form">
+        <button type="button" class="form__close-button hover-transparent"></button>
+        <div class="form__inputs">
+            <h2 class="form__title">Редактировать профиль</h2>
+            <input type="text" placeholder="Имя" class="form__input form__input_name" name="name" value="">
+            <input type="text" placeholder="Профессия" class="form__input form__input_profession" name="profession"
+                   value="">
         </div>
-        <button type="submit" class="edit-form__save-button">Сохранить</button>
+        <button type="submit" class="form__submit-button">Сохранить</button>
+    </form>
+</article>
+<article class="overlay overlay_card-add-popup">
+    <form action="#" method="get" class="form form_add-popup" name="card-add-form">
+        <button type="button" class="form__close-button form__close-button_card-add-popup hover-transparent"></button>
+        <div class="form__inputs">
+            <h2 class="form__title form__title_add-popup">Новое место</h2>
+            <input type="text" placeholder="Название" class="form__input form__input_place-name" name="place-name"
+                   value="">
+            <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_link" name="link"
+                   value="">
+        </div>
+        <button type="submit" class="form__submit-button form__submit-button_add-popup">Создать</button>
     </form>
 </article>
 <script src="scripts/index.js"></script>

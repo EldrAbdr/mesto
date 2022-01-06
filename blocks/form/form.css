@@ -1,4 +1,4 @@
-.edit-form {
+.form {
     max-width: 430px;
     width: 100%;
     height: 330px;
@@ -21,7 +21,7 @@
 }
 
 @media screen and (max-width: 570px) {
-    .edit-form {
+    .form {
         max-width: 282px;
         height: 322px;
     }
