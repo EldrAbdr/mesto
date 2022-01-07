@@ -1,5 +1,8 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts/fonts.css');
+@import url('../blocks/overlay/overlay.css');
+@import url('../blocks/overlay/_active/overlay_active.css');
+@import url('../blocks/overlay/_image-popup/overlay_image-popup.css');
 @import url('../blocks/document/document.css');
 @import url('../blocks/hover-transparent/hover-transparent.css');
 @import url('../blocks/page/page.css');
@@ -24,11 +27,12 @@
 @import url('../blocks/card/__like/_black/card__like_black.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
-@import url('../blocks/overlay/overlay.css');
-@import url('../blocks/overlay/_active/overlay_active.css');
 @import url('../blocks/form/form.css');
 @import url('../blocks/form/__title/form__title.css');
 @import url('../blocks/form/__input/form__input.css');
 @import url('../blocks/form/__close-button/form__close-button.css');
 @import url('../blocks/form/__submit-button/form__submit-button.css');
 @import url('../blocks/form/__inputs/form__inputs.css');
+@import url('../blocks/image-popup/image-popup.css');
+@import url('../blocks/image-popup/__image/image-popup__image.css');
+@import url('../blocks/image-popup/__caption/image-popup__caption.css');

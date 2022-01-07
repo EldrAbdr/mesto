@@ -1,6 +1,8 @@
 .overlay {
-    display: none;
+    display: flex;
+    visibility: hidden;
     position: fixed;
+    opacity: 0;
     top: 0;
     right: 0;
     bottom: 0;
@@ -12,4 +14,5 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    transition: visibility .4s linear, opacity .4s;
 }
