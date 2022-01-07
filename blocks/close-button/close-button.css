@@ -1,5 +1,5 @@
-.form__close-button {
-    background-image: url('../../../images/close_Icon.svg');
+.close-button {
+    background-image: url('../../images/close_Icon.svg');
     background-size: cover;
     background-position: center;
     background-color: transparent;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 570px) {
-    .form__close-button {
+    .close-button {
         right: 0;
         width: 20px;
         height: 20px;

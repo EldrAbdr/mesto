@@ -1,6 +1,4 @@
-/*отправка формы по наж интер. подумать на множеством иф. кнп эскейп*/
 const cards = document.querySelector('.cards');
-const overlay = document.querySelector('.overlay');
 const overlayActiveMod = ('overlay_active');
 /* Popup for adding cards variables*/
 const cardAddOverlay = document.querySelector('.overlay_card-add-popup');
@@ -10,11 +8,11 @@ let placeNameInput = document.querySelector('.form__input_place-name');
 let imageLinkInput = document.querySelector('.form__input_link');
 const cardAddPopupCloseButton = document.querySelector('.form__close-button_card-add-popup');
 /* Profile edit popup variables*/
-const profileEditOverlay = document.querySelector('.overlay');
+const profileEditOverlay = document.querySelector('.overlay_card-edit-popup');
 const profileEditForm = document.querySelector('.form_edit-popup');
 let profileEditNameInput = document.querySelector('.form__input_name');
 let profileEditProfessionInput = document.querySelector('.form__input_profession');
-const profileEditCloseButton = document.querySelector('.form__close-button');
+const profileEditCloseButton = document.querySelector('.form__close-button_edit-popup');
 /* Profile variables*/
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
@@ -90,7 +88,6 @@ function openWindow(evt) {
 }
 
 function closeWindow() {
-    overlay.classList.remove(overlayActiveMod);
     profileEditOverlay.classList.remove(overlayActiveMod);
     imageZoomOverlay.classList.remove(overlayActiveMod);
     cardAddOverlay.classList.remove(overlayActiveMod);

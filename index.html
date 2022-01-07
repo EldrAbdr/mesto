@@ -31,9 +31,9 @@
 <footer class="footer">
     <p class="footer__copyright">© 2022 Mesto Russia</p>
 </footer>
-<article class="overlay">
+<article class="overlay_card-edit-popup overlay">
     <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form">
-        <button type="button" class="form__close-button hover-transparent"></button>
+        <button type="button" class="form__close-button_edit-popup close-button hover-transparent"></button>
         <div class="form__inputs">
             <h2 class="form__title">Редактировать профиль</h2>
             <input type="text" placeholder="Имя" class="form__input form__input_name" name="name" value="">
@@ -44,7 +44,7 @@
 </article>
 <article class="overlay_card-add-popup overlay">
     <form action="#" method="get" class="form form_add-popup" name="card-add-form">
-        <button type="button" class="form__close-button form__close-button_card-add-popup hover-transparent"></button>
+        <button type="button" class="form__close-button_card-add-popup close-button hover-transparent"></button>
         <div class="form__inputs">
             <h2 class="form__title form__title_add-popup">Новое место</h2>
             <input type="text" placeholder="Название" class="form__input form__input_place-name" name="place-name" value="">
@@ -55,7 +55,7 @@
 </article>
 <article class="overlay_image-popup overlay">
     <div class="image-popup">
-        <button class="image-popup__close-button form__close-button hover-transparent" type="button"></button>
+        <button class="image-popup__close-button close-button hover-transparent" type="button"></button>
         <img class="image-popup__image" src="#" alt="#">
         <p class="image-popup__caption"></p>
     </div>
