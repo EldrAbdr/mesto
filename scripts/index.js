@@ -23,7 +23,7 @@ const editButton = document.querySelector('.profile__edit-button');
 const imageZoomOverlay = document.querySelector('.overlay_image-popup');
 const imageZoomPicture = document.querySelector('.image-popup__image');
 const imageZoomCaption = document.querySelector('.image-popup__caption');
-const imageZoomCloseButton = document.querySelector('.form__close-button_image-popup');
+const imageZoomCloseButton = document.querySelector('.image-popup__close-button');
 
 const initialCards = [
     {
