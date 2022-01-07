@@ -6,13 +6,13 @@ const cardAddForm = document.querySelector('.form_add-popup');
 const addButton = document.querySelector('.profile__add-button');
 let placeNameInput = document.querySelector('.form__input_place-name');
 let imageLinkInput = document.querySelector('.form__input_link');
-const cardAddPopupCloseButton = document.querySelector('.form__close-button_card-add-popup');
+const cardAddPopupCloseButton = document.querySelector('.form__card-add-close-button');
 /* Profile edit popup variables*/
 const profileEditOverlay = document.querySelector('.overlay_card-edit-popup');
 const profileEditForm = document.querySelector('.form_edit-popup');
 let profileEditNameInput = document.querySelector('.form__input_name');
 let profileEditProfessionInput = document.querySelector('.form__input_profession');
-const profileEditCloseButton = document.querySelector('.form__close-button_edit-popup');
+const profileEditCloseButton = document.querySelector('.form__edit-close-button');
 /* Profile variables*/
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
