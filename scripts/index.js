@@ -1,5 +1,6 @@
-/*добавляет пустые блоки при не заполненных полях*/
+/*отправка формы по наж интер. подумать на множеством иф. кнп эскейп*/
 const cards = document.querySelector('.cards');
+const overlay = document.querySelector('.overlay');
 const overlayActiveMod = ('overlay_active');
 /* Popup for adding cards variables*/
 const cardAddOverlay = document.querySelector('.overlay_card-add-popup');
@@ -18,6 +19,11 @@ const profileEditCloseButton = document.querySelector('.form__close-button');
 let profileName = document.querySelector('.profile__name');
 let profileProfession = document.querySelector('.profile__profession');
 const editButton = document.querySelector('.profile__edit-button');
+/* Image zoom popup variables */
+const imageZoomOverlay = document.querySelector('.overlay_image-popup');
+const imageZoomPicture = document.querySelector('.image-popup__image');
+const imageZoomCaption = document.querySelector('.image-popup__caption');
+const imageZoomCloseButton = document.querySelector('.form__close-button_image-popup');
 
 const initialCards = [
     {
@@ -46,15 +52,13 @@ const initialCards = [
     }
 ];
 
-initialAddCardsToPage();
-
-
+addInitialCardsToPage();
 
 function addCard(name, link) {
     cards.insertAdjacentHTML('afterbegin',
         `<article class="card">
             <button type="button" class="card__delete-button hover-transparent"></button>
-            <img class="card__image" src=${link} alt=${name}>
+            <img class="card__image" src=${link} alt=${name} onerror = "this.alt = 'Не удалось загрузить'">
             <div class="card__caption">
                 <h2 class="card__name">${name}</h2>
                 <button type="button" class="card__like hover-transparent"></button>
@@ -62,37 +66,34 @@ function addCard(name, link) {
         </article>`);
 }
 
-function initialAddCardsToPage() {
+function addInitialCardsToPage() {
     initialCards.forEach((item) => {
         addCard(item.name, item.link);
     });
 }
 
-
 function openWindow(evt) {
-    if (evt.target.classList.contains('profile__add-button')) {
+    let target = evt.target.classList;
+    if (target.contains('profile__add-button')) {
+        placeNameInput.value = '';
+        imageLinkInput.value = '';
         cardAddOverlay.classList.add(overlayActiveMod);
     }
-    if (evt.target.classList.contains('profile__edit-button')) {
+    if (target.contains('profile__edit-button')) {
         copyProfileDataToInputs()
         profileEditOverlay.classList.add(overlayActiveMod);
     }
+    if (target.contains('card__image')) {
+        copyCardImagePropertiesToPopup(evt);
+        imageZoomOverlay.classList.add(overlayActiveMod);
+    }
 }
 
-function closeWindow(evt) { /* переделать в свитч */
-    let target = evt.target.classList;
-    if (target.contains('form_edit-popup')) {
-        profileEditOverlay.classList.remove(overlayActiveMod);
-    }
-    if (target.contains('form__close-button')) {
-        profileEditOverlay.classList.remove(overlayActiveMod);
-    }
-    if (target.contains('form__close-button_card-add-popup')) {
-        cardAddOverlay.classList.remove(overlayActiveMod);
-    }
-    if (target.contains('form_add-popup')) {
-        cardAddOverlay.classList.remove(overlayActiveMod);
-    }
+function closeWindow() {
+    overlay.classList.remove(overlayActiveMod);
+    profileEditOverlay.classList.remove(overlayActiveMod);
+    imageZoomOverlay.classList.remove(overlayActiveMod);
+    cardAddOverlay.classList.remove(overlayActiveMod);
 }
 
 function handleFormSubmit(evt) {
@@ -100,11 +101,13 @@ function handleFormSubmit(evt) {
     let target = evt.target.classList;
     if (target.contains('form_edit-popup')) {
         copyInputsToProfileData()
-        closeWindow(evt);
+        closeWindow();
     }
-    if (target.contains('form_add-popup')) {
-        addCard(placeNameInput.value, imageLinkInput.value);
-        closeWindow(evt);
+    if (target.contains('form_add-popup') || evt.code === 'Enter') {
+        if (placeNameInput.value !== '' && imageLinkInput.value !== '') {
+            addCard(placeNameInput.value, imageLinkInput.value);
+            closeWindow();
+        }
     }
 }
 
@@ -120,17 +123,22 @@ function handleClickOnDocument(evt) {
         let card = evt.target.closest('.card');
         card.remove();
     }
+    if (target.contains('card__image')) {
+        openWindow(evt);
+    }
+}
+
+function handleKeydown(evt) {
+    if (evt.code === 'Enter') {
+        handleFormSubmit(evt)
+    }
+    if (evt.code === 'Escape') {
+        closeWindow();
+    }
 }
 
 function activateLikeButton(card) {
     card.toggle('card__like_black');
-}
-
-
-function handleKeydown(evt) {
-    if (evt.code === 'Escape') {
-        closeWindow()
-    }
 }
 
 function copyProfileDataToInputs() {
@@ -143,11 +151,18 @@ function copyInputsToProfileData() {
     profileProfession.textContent = profileEditProfessionInput.value;
 }
 
+function copyCardImagePropertiesToPopup(card) {
+    imageZoomPicture.src = card.target.currentSrc;
+    imageZoomPicture.alt = card.target.alt;
+    imageZoomCaption.textContent = card.target.alt;
+}
+
 profileEditForm.addEventListener('submit', handleFormSubmit);
 cardAddForm.addEventListener('submit', handleFormSubmit);
 editButton.addEventListener('click', openWindow);
 profileEditCloseButton.addEventListener('click', closeWindow);
 cardAddPopupCloseButton.addEventListener('click', closeWindow);
+imageZoomCloseButton.addEventListener('click', closeWindow)
 addButton.addEventListener('click', openWindow);
 document.addEventListener('click', handleClickOnDocument);
 document.addEventListener('keydown', handleKeydown);
