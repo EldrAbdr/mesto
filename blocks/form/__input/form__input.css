@@ -15,17 +15,17 @@
 }
 
 .form__input::-webkit-input-placeholder {
-    color:#000;
     font-size: 14px;
     font-weight: 400;
 }
+
 .form__input::-moz-placeholder {
-    color:#000;
     font-size: 14px;
     font-weight: 400;
 }
+
 .form__input:-moz-placeholder {
-    color:#000;
+    opacity: 1;
     font-size: 14px;
     font-weight: 400;
 }
