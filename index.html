@@ -1,65 +1,77 @@
 <!DOCTYPE HTML>
 <html class="document" lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages/index.css">
-    <title>Место</title>
-</head>
-<body class="page">
-<header class="header">
-    <a href="#" class="hover-transparent">
-        <img class="header__logo" src="images/logo.svg" alt="Место">
-    </a>
-</header>
-<main class="container">
-    <section class="profile">
-        <div class="profile__info">
-            <img class="profile__avatar" src="images/avatar.png" alt="Аватар">
-            <div class="profile__text-info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <p class="profile__profession">Исследователь океана</p>
-            </div>
-            <button type="button" aria-label="редактировать профиль" class="profile__edit-button hover-transparent"></button>
-        </div>
-        <button type="button" aria-label="добавить карточку" class="profile__add-button hover-transparent"></button>
-    </section>
-    <section class="cards">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pages/index.css">
+        <title>Место</title>
+    </head>
+    <body class="page">
+        <header class="header">
+            <a href="#" class="hover-transparent">
+                <img class="header__logo" src="images/logo.svg" alt="Место">
+            </a>
+        </header>
+        <main class="container">
+            <section class="profile">
+                <div class="profile__info">
+                    <img class="profile__avatar" src="images/avatar.png" alt="Аватар">
+                    <div class="profile__text-info">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <p class="profile__profession">Исследователь океана</p>
+                </div>
+                <button type="button" aria-label="редактировать профиль" class="profile__edit-button hover-transparent"></button>
+                </div>
+                <button type="button" aria-label="добавить карточку" class="profile__add-button hover-transparent"></button>
+            </section>
+            <section class="cards">
 
-    </section>
-</main>
-<footer class="footer">
-    <p class="footer__copyright">© 2022 Mesto Russia</p>
-</footer>
-<article class="overlay_card-edit-popup overlay">
-    <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form">
-        <button type="button" class="form__edit-close-button close-button hover-transparent"></button>
-        <div class="form__inputs">
-            <h2 class="form__title">Редактировать профиль</h2>
-            <input type="text" placeholder="Имя" class="form__input form__input_name" name="name" value="">
-            <input type="text" placeholder="Профессия" class="form__input form__input_profession" name="profession" value="">
-        </div>
-        <button type="submit" class="form__submit-button">Сохранить</button>
-    </form>
-</article>
-<article class="overlay_card-add-popup overlay">
-    <form action="#" method="get" class="form form_add-popup" name="card-add-form">
-        <button type="button" class="form__card-add-close-button close-button hover-transparent"></button>
-        <div class="form__inputs">
-            <h2 class="form__title form__title_add-popup">Новое место</h2>
-            <input type="text" placeholder="Название" class="form__input form__input_place-name" name="place-name" value="">
-            <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_link" name="link" value="">
-        </div>
-        <button type="submit" class="form__submit-button form__submit-button_add-popup">Создать</button>
-    </form>
-</article>
-<article class="overlay_image-popup overlay">
-    <div class="image-popup">
-        <button class="image-popup__close-button close-button hover-transparent" type="button"></button>
-        <img class="image-popup__image" src="#" alt="#">
-        <p class="image-popup__caption"></p>
-    </div>
-</article>
-<script src="scripts/index.js"></script>
-</body>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">© 2022 Mesto Russia</p>
+        </footer>
+        <article class="overlay_card-edit-popup overlay">
+            <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form">
+                <button type="button" class="form__edit-close-button close-button hover-transparent"></button>
+                <div class="form__inputs">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                    <input type="text" placeholder="Имя" class="form__input form__input_name" name="name" value="">
+                    <input type="text" placeholder="Профессия" class="form__input form__input_profession" name="profession" value="">
+                </div>
+                 <button type="submit" class="form__submit-button">Сохранить</button>
+            </form>
+        </article>
+        <article class="overlay_card-add-popup overlay">
+            <form action="#" method="get" class="form form_add-popup" name="card-add-form">
+                <button type="button" class="form__card-add-close-button close-button hover-transparent"></button>
+                <div class="form__inputs">
+                    <h2 class="form__title form__title_add-popup">Новое место</h2>
+                    <input type="text" placeholder="Название" class="form__input form__input_place-name" name="place-name"
+                   value="">
+                    <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_link" name="link"
+                   value="">
+                </div>
+                <button type="submit" class="form__submit-button form__submit-button_add-popup">Создать</button>
+            </form>
+        </article>
+        <article class="overlay_image-popup overlay">
+            <div class="image-popup">
+                <button class="image-popup__close-button close-button hover-transparent" type="button"></button>
+                <img class="image-popup__image" src="#" alt="#">
+                <p class="image-popup__caption"></p>
+            </div>
+        </article>
+        <template class="card-template">
+            <article class="card">
+                <button type="button" class="card__delete-button hover-transparent"></button>
+                <img class="card__image" src=# alt=# onerror="this.alt = 'Не удалось загрузить'">
+                <div class="card__caption">
+                    <h2 class="card__name"></h2>
+                    <button type="button" class="card__like hover-transparent"></button>
+                </div>
+            </article>
+        </template>
+        <script src="scripts/index.js"></script>
+    </body>
 </html>
