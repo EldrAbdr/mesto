@@ -1,3 +1,30 @@
+/*
+░░░░░░░░░░░░▄▄░░░░░░░░░░░░░░
+░░░░░░░░░░░█░░█░░░░░░░░░░░░░
+░░░░░░░░░░░█░░█░░░░░░░░░░░░░
+░░░░░░░░░░█░░░█░░░░░░░░░░░░░
+░░░░░░░░░█░░░░█░░░░░░░░░░░░░
+██████▄▄█░░░░░██████▄░░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█████░░░░░░░░░██░░░░░░
+█████▀░░░░▀▀████████░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+╔════╗░░╔════╗╔═══╗░░░░░░░░░
+║████║░░║████║║███╠═══╦═════╗
+╚╗██╔╝░░╚╗██╔╩╣██╠╝███║█████║
+░║██║░░░░║██║╔╝██║███╔╣██══╦╝
+░║██║╔══╗║██║║██████═╣║████║
+╔╝██╚╝██╠╝██╚╬═██║███╚╣██══╩╗
+║███████║████║████║███║█████║
+╚═══════╩════╩════════╩═════╝
+Спасибо за развернутые и обЪемные комментарии - это очень помогает!*/
+
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
 /* Popup for adding cards variables*/
@@ -22,10 +49,6 @@ const imageZoomPopup = document.querySelector('.overlay_image-popup');
 const imageZoomPicture = document.querySelector('.image-popup__image');
 const imageZoomCaption = document.querySelector('.image-popup__caption');
 const imageZoomCloseButton = document.querySelector('.image-popup__close-button');
-
-let isProfileEditPopupOpen = false;
-let isCardAddPopupOpen = false;
-let isImageZoomPopupOpen = false;
 
 const initialCards = [
     {
@@ -68,9 +91,9 @@ function createCard(name, imageLink) {
     card.querySelector('.card__name').textContent = name;
     card.querySelector('.card__image').alt = name;
     card.querySelector('.card__image').src = imageLink;
-    addListenerOnLikeButton(card.querySelector('.card__like'));
-    addListenerOnDeleteButton(card.querySelector('.card__delete-button'));
-    addListenerOnCardImage(card.querySelector('.card__image'));
+    card.querySelector('.card__like').addEventListener('click', toggleLikeButton);
+    card.querySelector('.card__delete-button').addEventListener('click', removeCard);
+    card.querySelector('.card__image').addEventListener('click', openImageZoomPopup);
     return card;
 }
 
@@ -78,27 +101,11 @@ function renderCard(card) {
     cardsContainer.prepend(card);
 }
 
-function addListenerOnDeleteButton(deleteButton) {
-    deleteButton.addEventListener('click', removeCard);
+function removeCard(deleteButton) {
+    deleteButton.target.closest('.card').remove();
 }
 
-function addListenerOnLikeButton(likeButton) {
-    likeButton.addEventListener('click', activateLikeButton);
-}
-
-function addListenerOnCardImage(image) {
-    image.addEventListener('click', openImageZoomPopup);
-}
-
-function removeCard(targetDeleteButton) {
-    identifyCard(targetDeleteButton).remove();
-}
-
-function identifyCard(deleteButton) {
-    return deleteButton.target.closest('.card');
-}
-
-function activateLikeButton(targetCard) {
+function toggleLikeButton(targetCard) {
     targetCard.target.classList.toggle('card__like_black');
 }
 
@@ -106,12 +113,10 @@ function activateLikeButton(targetCard) {
 function openImageZoomPopup(image) {
     copyImagePropertiesToPopup(image);
     openPopup(imageZoomPopup);
-    isImageZoomPopupOpen = true;
 }
 
 function closeImageZoomPopup() {
     closePopup(imageZoomPopup);
-    isImageZoomPopupOpen = false;
 }
 
 function copyImagePropertiesToPopup(image) {
@@ -124,12 +129,10 @@ function copyImagePropertiesToPopup(image) {
 function openProfileEditPopup() {
     copyProfileDataToInputs();
     openPopup(profileEditPopup);
-    isProfileEditPopupOpen = true;
 }
 
 function closeProfileEditPopup() {
     closePopup(profileEditPopup);
-    isProfileEditPopupOpen = false;
 }
 
 function handleSubmitEditProfilePopup(evt) {
@@ -152,12 +155,10 @@ function copyInputsToProfileData() {
 function openCardAddPopup() {
     cardAddForm.reset();
     openPopup(cardAddPopup);
-    isCardAddPopupOpen = true;
 }
 
 function closeCardAddPopup() {
     closePopup(cardAddPopup);
-    isCardAddPopupOpen = false;
 }
 
 function handleSubmitAddCardPopup(evt) {
@@ -183,14 +184,14 @@ function handleKeydown(evt) {
 }
 
 function closeOpenedPopups() {
-    if (isCardAddPopupOpen) {
-        closeCardAddPopup();
+    if(cardAddPopup.classList.contains(overlayActiveMod)) {
+        closePopup(cardAddPopup);
     }
-    if (isProfileEditPopupOpen) {
-        closeProfileEditPopup();
+    if(profileEditPopup.classList.contains(overlayActiveMod)) {
+        closePopup(profileEditPopup);
     }
-    if (isImageZoomPopupOpen) {
-        closeImageZoomPopup();
+    if(imageZoomPopup.classList.contains(overlayActiveMod)) {
+        closePopup(imageZoomPopup);
     }
 }
 
@@ -211,12 +212,3 @@ profileEditCloseButton.addEventListener('click', closeProfileEditPopup);
 imageZoomCloseButton.addEventListener('click', closeImageZoomPopup);
 document.addEventListener('click', handleClickOnDocument);
 document.addEventListener('keydown', handleKeydown);
-
-
-
-
-
-
-
-
-
