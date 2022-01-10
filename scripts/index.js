@@ -1,32 +1,6 @@
-/*
-░░░░░░░░░░░░▄▄░░░░░░░░░░░░░░
-░░░░░░░░░░░█░░█░░░░░░░░░░░░░
-░░░░░░░░░░░█░░█░░░░░░░░░░░░░
-░░░░░░░░░░█░░░█░░░░░░░░░░░░░
-░░░░░░░░░█░░░░█░░░░░░░░░░░░░
-██████▄▄█░░░░░██████▄░░░░░░░
-▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
-▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
-▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
-▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
-▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
-▓▓▓▓▓▓█████░░░░░░░░░██░░░░░░
-█████▀░░░░▀▀████████░░░░░░░░
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-╔════╗░░╔════╗╔═══╗░░░░░░░░░
-║████║░░║████║║███╠═══╦═════╗
-╚╗██╔╝░░╚╗██╔╩╣██╠╝███║█████║
-░║██║░░░░║██║╔╝██║███╔╣██══╦╝
-░║██║╔══╗║██║║██████═╣║████║
-╔╝██╚╝██╠╝██╚╬═██║███╚╣██══╩╗
-║███████║████║████║███║█████║
-╚═══════╩════╩════════╩═════╝
-Спасибо за развернутые и обЪемные комментарии - это очень помогает!*/
-
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
+const openedPopup = document.querySelector('.overlay_active');
 /* Popup for adding cards variables*/
 const cardAddPopup = document.querySelector('.overlay_card-add-popup');
 const cardAddForm = document.querySelector('.form_add-popup');
@@ -171,36 +145,32 @@ function handleSubmitAddCardPopup(evt) {
 
 /* Other functions*/
 function handleClickOnDocument(evt) {
-    let target = evt.target.classList;
+    const target = evt.target.classList;
     if (target.contains('overlay')) {
-        closeOpenedPopups()
+        closeOpenedPopup()
     }
 }
 
 function handleKeydown(evt) {
     if (evt.code === 'Escape') {
-        closeOpenedPopups()
+        closeOpenedPopup();
     }
 }
 
-function closeOpenedPopups() {
-    if(cardAddPopup.classList.contains(overlayActiveMod)) {
-        closePopup(cardAddPopup);
-    }
-    if(profileEditPopup.classList.contains(overlayActiveMod)) {
-        closePopup(profileEditPopup);
-    }
-    if(imageZoomPopup.classList.contains(overlayActiveMod)) {
-        closePopup(imageZoomPopup);
-    }
+function closeOpenedPopup() {
+    closePopup(document.querySelector('.overlay_active'));
 }
 
 function openPopup(popup) {
     popup.classList.add(overlayActiveMod);
+    document.addEventListener('click', handleClickOnDocument);
+    document.addEventListener('keydown', handleKeydown);
 }
 
 function closePopup(popup) {
     popup.classList.remove(overlayActiveMod);
+    document.removeEventListener('click', handleClickOnDocument);
+    document.removeEventListener('keydown', handleKeydown);
 }
 
 cardAddButton.addEventListener('click', openCardAddPopup);
@@ -210,5 +180,3 @@ profileEditButton.addEventListener('click', openProfileEditPopup);
 profileEditForm.addEventListener('submit', handleSubmitEditProfilePopup);
 profileEditCloseButton.addEventListener('click', closeProfileEditPopup);
 imageZoomCloseButton.addEventListener('click', closeImageZoomPopup);
-document.addEventListener('click', handleClickOnDocument);
-document.addEventListener('keydown', handleKeydown);
