@@ -23,10 +23,12 @@
 ╔╝██╚╝██╠╝██╚╬═██║███╚╣██══╩╗
 ║███████║████║████║███║█████║
 ╚═══════╩════╩════════╩═════╝
-Спасибо за развернутые и обЪемные комментарии - это очень помогает!*/
+Изящная задумка. Разжевали... - рахмет)
+Раз уж лояльны в плане итераций отправляю еще раз) */
 
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
+const openedPopup = document.querySelector('.overlay_active');
 /* Popup for adding cards variables*/
 const cardAddPopup = document.querySelector('.overlay_card-add-popup');
 const cardAddForm = document.querySelector('.form_add-popup');
@@ -171,28 +173,20 @@ function handleSubmitAddCardPopup(evt) {
 
 /* Other functions*/
 function handleClickOnDocument(evt) {
-    let target = evt.target.classList;
+    const target = evt.target.classList;
     if (target.contains('overlay')) {
         closeOpenedPopups()
     }
 }
 
 function handleKeydown(evt) {
-    if (evt.code === 'Escape') {
-        closeOpenedPopups()
+    if (evt.code === 'Escape' && document.querySelector('.overlay_active')) {
+        closeOpenedPopups();
     }
 }
 
 function closeOpenedPopups() {
-    if(cardAddPopup.classList.contains(overlayActiveMod)) {
-        closePopup(cardAddPopup);
-    }
-    if(profileEditPopup.classList.contains(overlayActiveMod)) {
-        closePopup(profileEditPopup);
-    }
-    if(imageZoomPopup.classList.contains(overlayActiveMod)) {
-        closePopup(imageZoomPopup);
-    }
+    closePopup(document.querySelector('.overlay_active'));
 }
 
 function openPopup(popup) {
