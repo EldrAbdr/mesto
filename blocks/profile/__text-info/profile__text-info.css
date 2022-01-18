@@ -12,10 +12,15 @@
     -ms-flex-align: start;
     align-items: start;
     margin-left: 30px;
+    margin-right: 18px;
+    min-width: 200px;
+    width: 63%;
+    height: auto;
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 648px) {
     .profile__text-info {
+        width: 197px;
         margin: 26px auto 0 auto;
         -webkit-box-pack: center;
         -ms-flex-pack: center;

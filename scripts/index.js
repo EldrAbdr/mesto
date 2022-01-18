@@ -1,6 +1,5 @@
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
-const openedPopup = document.querySelector('.overlay_active');
 /* Popup for adding cards variables*/
 const cardAddPopup = document.querySelector('.overlay_card-add-popup');
 const cardAddForm = document.querySelector('.form_add-popup');
@@ -51,9 +50,7 @@ const initialCards = [
     }
 ];
 
-addInitialCardsToPage();
-
-function addInitialCardsToPage() {
+const addInitialCardsToPage = () => {
     initialCards.forEach((item) => {
         renderCard(createCard(item.name, item.link));
     });
@@ -62,12 +59,15 @@ function addInitialCardsToPage() {
 function createCard(name, imageLink) {
     const cardTemplate = document.querySelector('.card-template').content;
     const card = cardTemplate.querySelector('.card').cloneNode(true);
+    const cardImage = card.querySelector('.card__image');
+    cardImage.alt = name;
+    cardImage.src = imageLink;
+    cardImage.addEventListener('click', () => {
+        openImageZoomPopup(name, imageLink);
+    });
     card.querySelector('.card__name').textContent = name;
-    card.querySelector('.card__image').alt = name;
-    card.querySelector('.card__image').src = imageLink;
     card.querySelector('.card__like').addEventListener('click', toggleLikeButton);
     card.querySelector('.card__delete-button').addEventListener('click', removeCard);
-    card.querySelector('.card__image').addEventListener('click', openImageZoomPopup);
     return card;
 }
 
@@ -75,28 +75,24 @@ function renderCard(card) {
     cardsContainer.prepend(card);
 }
 
-function removeCard(deleteButton) {
-    deleteButton.target.closest('.card').remove();
+function removeCard(evt) {
+    evt.target.closest('.card').remove();
 }
 
-function toggleLikeButton(targetCard) {
-    targetCard.target.classList.toggle('card__like_black');
+function toggleLikeButton(evt) {
+    evt.target.classList.toggle('card__like_black');
 }
 
 /* Image zoom popup functions*/
-function openImageZoomPopup(image) {
-    copyImagePropertiesToPopup(image);
+function openImageZoomPopup(name, imageLink) {
+    imageZoomPicture.src = imageLink
+    imageZoomPicture.alt = name
+    imageZoomCaption.textContent = name;
     openPopup(imageZoomPopup);
 }
 
 function closeImageZoomPopup() {
     closePopup(imageZoomPopup);
-}
-
-function copyImagePropertiesToPopup(image) {
-    imageZoomPicture.src = image.target.currentSrc;
-    imageZoomPicture.alt = image.target.alt;
-    imageZoomCaption.textContent = image.target.alt;
 }
 
 /*Profile edit popup functions*/
@@ -128,6 +124,7 @@ function copyInputsToProfileData() {
 /* Card add popup functions*/
 function openCardAddPopup() {
     cardAddForm.reset();
+    disableSubmitButton(cardAddForm);
     openPopup(cardAddPopup);
 }
 
@@ -137,10 +134,8 @@ function closeCardAddPopup() {
 
 function handleSubmitAddCardPopup(evt) {
     evt.preventDefault();
-    if (cardAddPlaceNameInput.value !== '' && cardAddImageLinkInput.value !== '') {
-        renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
-        closePopup(cardAddPopup);
-    }
+    renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
+    closePopup(cardAddPopup);
 }
 
 /* Other functions*/
@@ -173,6 +168,10 @@ function closePopup(popup) {
     document.removeEventListener('keydown', handleKeydown);
 }
 
+function disableSubmitButton(popupForm) {
+    popupForm.querySelector('.form__submit-button').disabled = true;
+}
+
 cardAddButton.addEventListener('click', openCardAddPopup);
 cardAddForm.addEventListener('submit', handleSubmitAddCardPopup);
 cardAddPopupCloseButton.addEventListener('click', closeCardAddPopup);
@@ -180,3 +179,5 @@ profileEditButton.addEventListener('click', openProfileEditPopup);
 profileEditForm.addEventListener('submit', handleSubmitEditProfilePopup);
 profileEditCloseButton.addEventListener('click', closeProfileEditPopup);
 imageZoomCloseButton.addEventListener('click', closeImageZoomPopup);
+
+addInitialCardsToPage();

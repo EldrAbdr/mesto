@@ -31,37 +31,39 @@
         <footer class="footer">
             <p class="footer__copyright">© 2022 Mesto Russia</p>
         </footer>
-        <article class="overlay_card-edit-popup overlay">
-            <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form">
+        <div class="overlay_card-edit-popup overlay">
+            <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form" novalidate>
                 <button type="button" class="form__edit-close-button close-button hover-transparent"></button>
                 <div class="form__inputs">
                     <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" placeholder="Имя" class="form__input form__input_name" name="name" value="">
-                    <input type="text" placeholder="Профессия" class="form__input form__input_profession" name="profession" value="">
+                    <input type="text" id="name-input" class="form__input form__input_name" placeholder="Имя" name="name" value="" minlength="2" maxlength="40" required>
+                    <span class="form__input-error name-input-error"></span>
+                    <input type="text" id="profession-input" class="form__input form__input_profession" placeholder="Профессия" name="profession" value="" required minlength="2" maxlength="200">
+                    <span class="form__input-error profession-input-error"></span>
                 </div>
                  <button type="submit" class="form__submit-button">Сохранить</button>
             </form>
-        </article>
-        <article class="overlay_card-add-popup overlay">
-            <form action="#" method="get" class="form form_add-popup" name="card-add-form">
+        </div>
+        <div class="overlay_card-add-popup overlay">
+            <form action="#" method="get" class="form form_add-popup" name="card-add-form" novalidate>
                 <button type="button" class="form__card-add-close-button close-button hover-transparent"></button>
                 <div class="form__inputs">
                     <h2 class="form__title form__title_add-popup">Новое место</h2>
-                    <input type="text" placeholder="Название" class="form__input form__input_place-name" name="place-name"
-                   value="">
-                    <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_link" name="link"
-                   value="">
+                    <input type="text" id="place-name-input" class="form__input form__input_place-name" placeholder="Название" name="place-name" value="" minlength="2" maxlength="30" required>
+                    <span class="form__input-error place-name-input-error"></span>
+                    <input type="url" id="link-input" class="form__input form__input_link" placeholder="Ссылка на картинку" name="link" value="" required>
+                    <span class="form__input-error link-input-error"></span>
                 </div>
-                <button type="submit" class="form__submit-button form__submit-button_add-popup">Создать</button>
+                <button type="submit" class="form__submit-button">Создать</button>
             </form>
-        </article>
-        <article class="overlay_image-popup overlay">
+        </div>
+        <div class="overlay_image-popup overlay">
             <div class="image-popup">
                 <button class="image-popup__close-button close-button hover-transparent" type="button"></button>
                 <img class="image-popup__image" src="#" alt="#">
                 <p class="image-popup__caption"></p>
             </div>
-        </article>
+        </div>
         <template class="card-template">
             <article class="card">
                 <button type="button" class="card__delete-button hover-transparent"></button>
@@ -73,5 +75,6 @@
             </article>
         </template>
         <script src="scripts/index.js"></script>
+        <script src="scripts/validate.js"></script>
     </body>
 </html>
