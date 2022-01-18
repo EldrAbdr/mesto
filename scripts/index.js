@@ -128,6 +128,7 @@ function copyInputsToProfileData() {
 /* Card add popup functions*/
 function openCardAddPopup() {
     cardAddForm.reset();
+    toggleButtonStatus(cardAddForm);
     openPopup(cardAddPopup);
 }
 
@@ -137,10 +138,8 @@ function closeCardAddPopup() {
 
 function handleSubmitAddCardPopup(evt) {
     evt.preventDefault();
-    if (cardAddPlaceNameInput.value !== '' && cardAddImageLinkInput.value !== '') {
-        renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
-        closePopup(cardAddPopup);
-    }
+    renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
+    closePopup(cardAddPopup);
 }
 
 /* Other functions*/

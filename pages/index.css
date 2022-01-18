@@ -30,6 +30,8 @@
 @import url('../blocks/form/form.css');
 @import url('../blocks/form/__title/form__title.css');
 @import url('../blocks/form/__input/form__input.css');
+@import url('../blocks/form/__input/_status/form__input_status_error.css');
+@import url('../blocks/form/__input-error/form__input-error.css');
 @import url('../blocks/close-button/close-button.css');
 @import url('../blocks/form/__submit-button/form__submit-button.css');
 @import url('../blocks/form/__inputs/form__inputs.css');

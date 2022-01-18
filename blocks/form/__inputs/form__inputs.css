@@ -1,9 +1,7 @@
 .form__inputs {
     color: #000;
-    font-size: 24px;
-    font-weight: 900;
     padding: 0;
-    margin: 34px auto 0 auto;
+    margin: 0 auto 0 auto;
     max-width: 358px;
     width: 100%;
     display: -webkit-box;
@@ -24,7 +22,6 @@
 @media screen and (max-width: 570px) {
     .form__inputs {
         max-width: 238px;
-        font-size: 18px;
-        margin: 24px auto 0 auto;
+        margin: 0 auto 0 auto;
     }
 }
