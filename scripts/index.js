@@ -1,3 +1,5 @@
+import {Card} from "./card";
+
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
 /* Popup for adding cards variables*/
@@ -52,39 +54,41 @@ const initialCards = [
 
 const addInitialCardsToPage = () => {
     initialCards.forEach((item) => {
-        renderCard(createCard(item.name, item.link));
+        console.log(new Card(item.name, item.link));
+        renderCard((new Card(item.name, item.link)).createCard());
     });
 }
 
-function createCard(name, imageLink) {
+/*function createCard(name, imageLink) {
     const cardTemplate = document.querySelector('.card-template').content;
     const card = cardTemplate.querySelector('.card').cloneNode(true);
     const cardImage = card.querySelector('.card__image');
     cardImage.alt = name;
     cardImage.src = imageLink;
+    card.querySelector('.card__name').textContent = name;
+
     cardImage.addEventListener('click', () => {
         openImageZoomPopup(name, imageLink);
     });
-    card.querySelector('.card__name').textContent = name;
-    card.querySelector('.card__like').addEventListener('click', toggleLikeButton);
+        card.querySelector('.card__like').addEventListener('click', toggleLikeButton);
     card.querySelector('.card__delete-button').addEventListener('click', removeCard);
     return card;
-}
+}*/
 
 function renderCard(card) {
     cardsContainer.prepend(card);
 }
 
-function removeCard(evt) {
+export function removeCard(evt) {
     evt.target.closest('.card').remove();
 }
 
-function toggleLikeButton(evt) {
+export function toggleLikeButton(evt) {
     evt.target.classList.toggle('card__like_black');
 }
 
 /* Image zoom popup functions*/
-function openImageZoomPopup(name, imageLink) {
+export function openImageZoomPopup(name, imageLink) {
     imageZoomPicture.src = imageLink
     imageZoomPicture.alt = name
     imageZoomCaption.textContent = name;
@@ -132,11 +136,11 @@ function closeCardAddPopup() {
     closePopup(cardAddPopup);
 }
 
-function handleSubmitAddCardPopup(evt) {
+/*function handleSubmitAddCardPopup(evt) {
     evt.preventDefault();
     renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
     closePopup(cardAddPopup);
-}
+}*/
 
 /* Other functions*/
 function handleClickOnDocument(evt) {
