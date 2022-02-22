@@ -1,5 +1,4 @@
-import {openImageZoomPopup, toggleLikeButton, removeCard} from "./index";
-
+import {openImageZoomPopup} from './index.js';
 
 export class Card {
     constructor(name, imageLink, cardTemplate) {
@@ -8,49 +7,47 @@ export class Card {
         this._cardTemplate = cardTemplate;
     }
 
-  /*  _setEventListeners() {
-        this._cardImage._setEventListeners('click', () => {
-           this._handleClickOnImage();
+    _setEventListeners() {
+        this._image.addEventListener('click', () => {
+            this._handleClickOnImage();
         });
-        /*this._card.querySelector('.card__like')._setEventListeners('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._handleClickOnLike();
         })
-        this._card.querySelector('.card__delete-button')._setEventListeners('click', () => {
+        this._deleteButton.addEventListener('click', () => {
             this._handleClickOnDelete();
         })
-
-    }*/
-
-    _getTemplate() {
-        const cardTemplate = document
-            .querySelector(this._cardTemplate).content
-            .querySelector('.card').cloneNode(true);
-        console.log(cardTemplate);
-        return cardTemplate;
     }
 
+    _getTemplate() {
+        return document
+            .querySelector(this._cardTemplate).content
+            .querySelector('.card').cloneNode(true);
+    }
 
     _handleClickOnImage() {
         openImageZoomPopup(this._name, this._imageLink);
     }
 
     _handleClickOnLike() {
-        toggleLikeButton()
+        this._likeButton.classList.toggle('card__like_black');
     }
+
     _handleClickOnDelete() {
-        removeCard();
+        this._deleteButton.closest('.card').remove();
     }
 
-
-     createCard() {
+    createCard() {
         this._card = this._getTemplate();
-        /*this._cardImage = this._card.querySelector('.card__image');
+        this._image = this._card.querySelector('.card__image');
+        this._likeButton = this._card.querySelector('.card__like');
+        this._deleteButton = this._card.querySelector('.card__delete-button');
 
         this._card.querySelector('.card__name').textContent = this._name;
-        this._cardImage.alt = this._name;
-        this._cardImage.src = this._imageLink;
-
-        this._setEventListeners();*/
+        this._image.alt = this._name;
+        this._image.src = this._imageLink;
+        this._setEventListeners();
         return this._card;
     }
 }
+

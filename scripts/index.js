@@ -1,7 +1,14 @@
-import {Card} from "./card";
+import {Card} from './card.js';
+import {FormValidator} from './formValidator.js';
 
 const cardsContainer = document.querySelector('.cards');
 const overlayActiveMod = ('overlay_active');
+const cardTemplate = '.card-template';
+const validationSetting = {
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit-button',
+    inputErrorClass: '.form__input_status_error'
+};
 /* Popup for adding cards variables*/
 const cardAddPopup = document.querySelector('.overlay_card-add-popup');
 const cardAddForm = document.querySelector('.form_add-popup');
@@ -54,41 +61,22 @@ const initialCards = [
 
 const addInitialCardsToPage = () => {
     initialCards.forEach((item) => {
-        console.log(new Card(item.name, item.link));
-        renderCard((new Card(item.name, item.link)).createCard());
+        renderCard((new Card(item.name, item.link, cardTemplate)).createCard());
     });
 }
 
-/*function createCard(name, imageLink) {
-    const cardTemplate = document.querySelector('.card-template').content;
-    const card = cardTemplate.querySelector('.card').cloneNode(true);
-    const cardImage = card.querySelector('.card__image');
-    cardImage.alt = name;
-    cardImage.src = imageLink;
-    card.querySelector('.card__name').textContent = name;
+const editProfileForm = new FormValidator(validationSetting, '.form_edit-popup');
+const imageAddForm = new FormValidator(validationSetting, '.form_add-popup');
 
-    cardImage.addEventListener('click', () => {
-        openImageZoomPopup(name, imageLink);
-    });
-        card.querySelector('.card__like').addEventListener('click', toggleLikeButton);
-    card.querySelector('.card__delete-button').addEventListener('click', removeCard);
-    return card;
-}*/
+editProfileForm.enableValidation();
+imageAddForm.enableValidation();
 
 function renderCard(card) {
     cardsContainer.prepend(card);
 }
 
-export function removeCard(evt) {
-    evt.target.closest('.card').remove();
-}
-
-export function toggleLikeButton(evt) {
-    evt.target.classList.toggle('card__like_black');
-}
-
 /* Image zoom popup functions*/
-export function openImageZoomPopup(name, imageLink) {
+ export function openImageZoomPopup(name, imageLink) {
     imageZoomPicture.src = imageLink
     imageZoomPicture.alt = name
     imageZoomCaption.textContent = name;
@@ -136,11 +124,11 @@ function closeCardAddPopup() {
     closePopup(cardAddPopup);
 }
 
-/*function handleSubmitAddCardPopup(evt) {
+function handleSubmitAddCardPopup(evt) {
     evt.preventDefault();
-    renderCard(createCard(cardAddPlaceNameInput.value, cardAddImageLinkInput.value));
+    renderCard(new Card(cardAddPlaceNameInput.value, cardAddImageLinkInput.value, cardTemplate).createCard());
     closePopup(cardAddPopup);
-}*/
+}
 
 /* Other functions*/
 function handleClickOnDocument(evt) {
