@@ -37,7 +37,7 @@ export class Card {
         this._deleteButton.closest('.card').remove();
     }
 
-    createCard() {
+    initiateCard() {
         this._card = this._getTemplate();
         this._image = this._card.querySelector('.card__image');
         this._likeButton = this._card.querySelector('.card__like');
