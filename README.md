@@ -18,6 +18,7 @@
 * Grid Layout
 * FlexBox
 * BEM
+* Webpack
 
 **Ссылка на GitHub Pages**
 
