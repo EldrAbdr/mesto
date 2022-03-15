@@ -1,21 +1,19 @@
-export const cardsContainer = document.querySelector('.cards');
-export const overlayActiveMod = ('overlay_active');
-export const cardTemplate = '.card-template';
+export const cardsContainerSelector = '.cards';
+export const cardTemplateSelector = '.card-template';
 export const validationSetting = {
     formSelector: '.form',
     inputSelector: '.form__input',
     submitButtonSelector: '.form__submit-button',
     inputErrorClass: '.form__input_status_error'
 };
-export const cardAddPopupSelector = document.querySelector('.overlay_card-add-popup');
+export const cardAddPopupSelector = '.overlay_card-add-popup';
 export const cardAddButton = document.querySelector('.profile__add-button');
-export const profileEditPopupSelector = document.querySelector('.overlay_card-edit-popup');
-export const profileNameSelector = document.querySelector('.profile__name');
-export const profileProfessionSelector = document.querySelector('.profile__profession');
+export const profileEditPopupSelector = '.overlay_card-edit-popup';
+export const profileNameSelector = '.profile__name';
+export const profileProfessionSelector = '.profile__profession';
 export const profileEditButton = document.querySelector('.profile__edit-button');
-export const imageZoomPopup = document.querySelector('.overlay_image-popup');
-export const imageZoomPicture = document.querySelector('.image-popup__image');
-export const imageZoomCaption = document.querySelector('.image-popup__caption');
+export const imageZoomPopupSelector = '.overlay_image-popup';
+export const formValidators = {};
 
 export const initialList = [
     {

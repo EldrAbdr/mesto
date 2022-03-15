@@ -1,17 +1,16 @@
 import Popup from "./Popup.js";
-import {imageZoomCaption, imageZoomPicture} from "../constants/constants.js";
 
 export default class PopupWithImage extends Popup {
-    constructor({name, imageLink}, selector) {
-        super(selector);
-        this._name = name;
-        this._imageLink = imageLink;
+    constructor(popupSelector) {
+        super(popupSelector);
+        this._name = this._popup.querySelector('.image-popup__caption');
+        this._image = this._popup.querySelector('.image-popup__image');
     }
 
-    open(caption) {
-        imageZoomCaption.textContent = this._name;
-        imageZoomPicture.alt = this._name;
-        imageZoomPicture.src = this._imageLink;
+    open(name, imageLink) {
+        this._name.textContent = name;
+        this._image.alt = name;
+        this._image.src = imageLink;
         super.open();
     }
 }

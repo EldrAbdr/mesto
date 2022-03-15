@@ -1,25 +1,23 @@
-import {overlayActiveMod} from "../constants/constants.js";
-
 export default class Popup {
-    constructor(selector) {
-        this._popup = selector;
+    constructor(popupSelector) {
+        this._popup = document.querySelector(popupSelector);
+        this._handlerEscClose = this._handleEscClose.bind(this);
     }
 
     open() {
-        document.addEventListener('keydown', (evt) => {
-            if (evt.code === 'Escape') {
-                this._handleEscClose();
-            }
-        }, {once: true});
-        this._popup.classList.add(overlayActiveMod);
+        this._popup.classList.add('overlay_active');
+        document.addEventListener('keydown', this._handlerEscClose);
     }
 
     close() {
-        this._popup.classList.remove(overlayActiveMod);
+        this._popup.classList.remove('overlay_active');
+        document.removeEventListener('keydown', this._handlerEscClose);
     }
 
-    _handleEscClose() {
-        this.close();
+    _handleEscClose(evt) {
+        if (evt.code === 'Escape') {
+            this.close();
+        }
     }
 
     setEventListeners() {

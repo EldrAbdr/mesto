@@ -1,22 +1,18 @@
-import {profileNameSelector, profileProfessionSelector} from "../constants/constants";
-
 export default class UserInfo {
     constructor(profileNameSelector, profileProfessionSelector) {
-        this._profileName = profileNameSelector;
-        this._profileProfession = profileProfessionSelector;
+        this._profileName = document.querySelector(profileNameSelector);
+        this._profileProfession = document.querySelector(profileProfessionSelector);
     }
 
     getUserInfo() {
         return {
-            profileName: this._profileName,
-            profileProfession: this._profileProfession
+            profileName: this._profileName.textContent,
+            profileProfession: this._profileProfession.textContent
         }
     }
 
     setUserInfo({profileName, profileProfession}) {
-        this._profileName = profileName;
-        this._profileProfession = profileProfession;
-        profileNameSelector.textContent = profileName;
-        profileProfessionSelector.textContent = profileProfession;
+        this._profileName.textContent = profileName;
+        this._profileProfession.textContent = profileProfession;
     }
 }
