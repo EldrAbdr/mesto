@@ -6,38 +6,20 @@ export const validationSetting = {
     submitButtonSelector: '.form__submit-button',
     inputErrorClass: '.form__input_status_error'
 };
+export const apiConfig = {
+    url: 'https://mesto.nomoreparties.co/v1/',
+    groupId: 'cohort-38',
+    token: '73bbc2c4-cda9-4c41-a59c-d7d4ba072805'
+};
 export const cardAddPopupSelector = '.overlay_card-add-popup';
-export const cardAddButton = document.querySelector('.profile__add-button');
 export const profileEditPopupSelector = '.overlay_card-edit-popup';
+export const avatarEditPopupSelector = '.overlay_avatar-popup'
 export const profileNameSelector = '.profile__name';
 export const profileProfessionSelector = '.profile__profession';
-export const profileEditButton = document.querySelector('.profile__edit-button');
+export const profileAvatarSelector = '.profile__avatar'
 export const imageZoomPopupSelector = '.overlay_image-popup';
+export const deleteQuestionPopupSelector = '.overlay_delete-question-popup';
 export const formValidators = {};
-
-export const initialList = [
-    {
-        name: 'Архыз',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        imageLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+export const profileEditButton = document.querySelector('.profile__edit-button');
+export const cardAddButton = document.querySelector('.profile__add-button');
+export const avatarEditButton = document.querySelector('.profile__avatar-edit-button');

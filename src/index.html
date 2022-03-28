@@ -14,10 +14,13 @@
         <main class="container">
             <section class="profile">
                 <div class="profile__info">
-                    <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Аватар">
+                    <div class="profile__avatar-container">
+                        <img class="profile__avatar" src=# alt="Аватар">
+                        <button type="button" class="profile__avatar-edit-button hover-transparent"></button>
+                    </div>
                     <div class="profile__text-info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <p class="profile__profession">Исследователь океана</p>
+                    <h1 class="profile__name"></h1>
+                    <p class="profile__profession"></p>
                 </div>
                 <button type="button" aria-label="редактировать профиль" class="profile__edit-button hover-transparent"></button>
                 </div>
@@ -33,8 +36,8 @@
         <div class="overlay_card-edit-popup overlay">
             <form action="#" method="get" class="form form_edit-popup" name="profile-edit-form" novalidate>
                 <button type="button" class="form__edit-close-button close-button hover-transparent"></button>
+                <h2 class="form__title">Редактировать профиль</h2>
                 <div class="form__inputs">
-                    <h2 class="form__title">Редактировать профиль</h2>
                     <input type="text" id="name-input" class="form__input form__input_name" placeholder="Имя" name="profileName" value="" minlength="2" maxlength="40" required>
                     <span class="form__input-error name-input-error"></span>
                     <input type="text" id="profession-input" class="form__input form__input_profession" placeholder="Профессия" name="profileProfession" value="" required minlength="2" maxlength="200">
@@ -46,14 +49,25 @@
         <div class="overlay_card-add-popup overlay">
             <form action="#" method="get" class="form form_add-popup" name="card-add-form" novalidate>
                 <button type="button" class="form__card-add-close-button close-button hover-transparent"></button>
+                <h2 class="form__title form__title_add-popup">Новое место</h2>
                 <div class="form__inputs">
-                    <h2 class="form__title form__title_add-popup">Новое место</h2>
                     <input type="text" id="place-name-input" class="form__input form__input_place-name" placeholder="Название" name="name" value="" minlength="2" maxlength="30" required>
                     <span class="form__input-error place-name-input-error"></span>
                     <input type="url" id="link-input" class="form__input form__input_link" placeholder="Ссылка на картинку" name="imageLink" value="" required>
                     <span class="form__input-error link-input-error"></span>
                 </div>
                 <button type="submit" class="form__submit-button">Создать</button>
+            </form>
+        </div>
+        <div class="overlay_avatar-popup overlay">
+            <form action="#" method="get" class="form form_avatar-popup" name="avatar-form" novalidate>
+                <button type="button" class="form__avatar-close-button close-button hover-transparent"></button>
+                <h2 class="form__title form__avatar-popup">Обновить аватар</h2>
+                <div class="form__inputs">
+                    <input type="url" id="avatar-input" class="form__input form__input_link" placeholder="Ссылка на аватар" name="avatarLink" value="" required>
+                    <span class="form__input-error avatar-input-error"></span>
+                </div>
+                <button type="submit" class="form__submit-button">Сохранить</button>
             </form>
         </div>
         <div class="overlay_image-popup overlay">
@@ -63,13 +77,23 @@
                 <p class="image-popup__caption"></p>
             </div>
         </div>
+        <div class="overlay_delete-question-popup overlay">
+            <form action="#" method="get" class="form form_mini form_delete-question-popup" name="delete-question-form" novalidate>
+                <button type="button" class="form__card-add-close-button close-button hover-transparent"></button>
+                <h2 class="form__title form__title_delete-question-popup">Вы уверены?</h2>
+                <button type="submit" class="form__submit-button">Да</button>
+            </form>
+        </div>
         <template class="card-template">
             <article class="card">
                 <button type="button" class="card__delete-button hover-transparent"></button>
                 <img class="card__image" src=# alt=# onerror="this.alt = 'Не удалось загрузить'">
                 <div class="card__caption">
                     <h2 class="card__name"></h2>
-                    <button type="button" class="card__like hover-transparent"></button>
+                    <div class="card__like-section">
+                        <button type="button" class="card__like hover-transparent"></button>
+                        <div class="card__like-number"></div>
+                    </div>
                 </div>
             </article>
         </template>
