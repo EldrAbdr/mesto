@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     -webkit-box-align: start;
     -ms-flex-align: start;
-    align-items: start;
+    align-items: flex-start;
     margin-left: 30px;
     margin-right: 18px;
     min-width: 200px;

@@ -1,182 +1,90 @@
-import {e} from "caniuse-lite/data/browserVersions";
-
 export default class Api {
-    constructor({url, groupId, token}) {
-        this._url = url;
-        this._groupId = groupId;
-        this._token = token;
+    constructor({baseUrl, headers}) {
+        this._url = baseUrl;
+        this._headers = headers;
+    }
 
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json()
+        } else {
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
     }
 
     loadUserInfo() {
-        return fetch(`https://nomoreparties.co/v1/${this._groupId}/users/me`, {
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            }
+        return fetch(`https://nomoreparties.co/v1/cohort-38/users/me`, {
+            headers: this._headers
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
             .then(userInfo => userInfo)
-            .catch(err => {
-                console.log(err);
-            })
     }
 
     editProfile({profileName, profileProfession}) {
-        console.log(profileName + "  " + profileProfession)
-        return fetch(`https://mesto.nomoreparties.co/v1/${this._groupId}/users/me`, {
+        return fetch(`${this._url}/users/me`, {
             method: 'PATCH',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 name: profileName,
                 about: profileProfession
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            .then(this._checkResponse)
     }
 
     editAvatar(avatarLink) {
-        return fetch(`https://mesto.nomoreparties.co/v1/${this._groupId}/users/me/avatar`, {
+        return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 avatar: avatarLink
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            .then(this._checkResponse)
     }
 
     loadCards() {
-        return fetch(`${this._url}${this._groupId}/cards`, {
-            headers: {
-                authorization: this._token
-            }
+        return fetch(`${this._url}/cards`, {
+            headers: this._headers
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
             .then(cards => cards)
-            .catch(err => {
-                console.log(err);
-            })
     }
 
     addNewCard({name, imageLink}) {
-        return fetch(`${this._url}${this._groupId}/cards`, {
+        return fetch(`${this._url}/cards`, {
             method: 'POST',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 name: name,
                 link: imageLink
             })
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
+            .then(this._checkResponse)
             .then(data => data)
-            .catch(err => {
-                console.log(err);
-            })
     }
 
     deleteCardOnServer(cardId) {
-        return fetch(`${this._url}${this._groupId}/cards/${cardId}`, {
+        return fetch(`${this._url}/cards/${cardId}`, {
             method: 'DELETE',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            }
+            headers: this._headers
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`)
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 
     addLike(cardId) {
-        return fetch(`${this._url}${this._groupId}/cards/${cardId}/likes`, {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
             method: 'PUT',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            }
+            headers: this._headers
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
+            .then(this._checkResponse)
     }
 
     removeLike(cardId) {
-        return fetch(`${this._url}${this._groupId}/cards/${cardId}/likes`, {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
             method: 'DELETE',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            }
+            headers: this._headers
         })
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(`Ошибка: ${res.status}`);
-                }
-            })
-            .catch(err => {
-                console.log(err)
-            })
+            .then(this._checkResponse)
     }
 }

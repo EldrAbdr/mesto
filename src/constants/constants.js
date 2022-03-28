@@ -6,11 +6,6 @@ export const validationSetting = {
     submitButtonSelector: '.form__submit-button',
     inputErrorClass: '.form__input_status_error'
 };
-export const apiConfig = {
-    url: 'https://mesto.nomoreparties.co/v1/',
-    groupId: 'cohort-38',
-    token: '73bbc2c4-cda9-4c41-a59c-d7d4ba072805'
-};
 export const cardAddPopupSelector = '.overlay_card-add-popup';
 export const profileEditPopupSelector = '.overlay_card-edit-popup';
 export const avatarEditPopupSelector = '.overlay_avatar-popup'

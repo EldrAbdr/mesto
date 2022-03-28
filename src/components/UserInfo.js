@@ -19,8 +19,4 @@ export default class UserInfo {
         this._profileId = _id;
         this._profileAvatar.src = avatar;
     }
-
-    updateAvatar(avatarLink) {
-        this._profileAvatar.src = avatarLink;
-    }
 }

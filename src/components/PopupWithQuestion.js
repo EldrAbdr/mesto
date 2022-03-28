@@ -12,7 +12,6 @@ export default class PopupWithQuestion extends Popup {
         this._submitButton.addEventListener('click', (evt) => {
             evt.preventDefault()
             this._handleSubmitButton();
-            this.close();
         });
     }
 

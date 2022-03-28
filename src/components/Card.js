@@ -10,10 +10,10 @@ export default class Card {
         this._openDeleteQuestion = openDeleteQuestion;
         this.cardId = cardDetails._id;
         this._handleClickOnLike = handleClickOnLike;
-        this._isUserLikeCard = this._findIsUserLikeIt(cardDetails.likes, userId)
+        this._isUserLikeCard = this._findIsUserLikeCard(cardDetails.likes, userId)
     }
 
-    _findIsUserLikeIt(likesList, userId) {
+    _findIsUserLikeCard(likesList, userId) {
         for (let i = 0; i < likesList.length; i++) {
             if (likesList[i]._id === userId) return true;
         }
@@ -40,7 +40,7 @@ export default class Card {
             .querySelector('.card').cloneNode(true);
     }
 
-    toggleLikeButton() {
+    _toggleLikeButton() {
         this._likeButton.classList.toggle('card__like_black');
     }
 
@@ -52,6 +52,8 @@ export default class Card {
     updateLikeNumber(likeNumber) {
         this._numberOfLikes = likeNumber;
         this._likeNumberCaption.textContent = likeNumber;
+        this._isUserLikeCard = (!this._isUserLikeCard);
+        this._toggleLikeButton();
     }
 
     removeSelf() {
@@ -78,7 +80,4 @@ export default class Card {
         this._setEventListeners();
         return this._card;
     }
-
-
 }
-
