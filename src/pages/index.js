@@ -25,7 +25,6 @@ import {
     avatarEditPopupSelector,
 } from '../constants/constants.js';
 
-
 const user = new UserInfo(profileNameSelector, profileProfessionSelector, profileAvatarSelector);
 const api = new Api({
     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-38',
@@ -35,42 +34,12 @@ const api = new Api({
     }
 });
 
-
 const cardList = new Section({
     items: [], renderer: (item) => {
        return createCard(item);
     }
 }, cardsContainerSelector);
 
-function createCard(cardDetails) {
-    const card = new Card(cardDetails, cardTemplateSelector,
-        (name, imageLink) => {
-            imagePopup.open(name, imageLink);
-        },
-        () => {
-            deleteQuestionPopup.open(card);
-        }, (isUserLikeCard) => {
-            if (isUserLikeCard) {
-                api.removeLike(card.cardId)
-                    .then(data => {
-                        card.updateLikeNumber(data.likes.length);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            } else {
-                api.addLike(card.cardId)
-                    .then(data => {
-                        card.updateLikeNumber(data.likes.length)
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            }
-        },
-        user.getUserInfo().profileId);
-    return card.initiateCard();
-}
 
 const cardAddPopup = new PopupWithForm({
     popupSelector: cardAddPopupSelector, handleFormSubmit: () => {
@@ -110,7 +79,6 @@ const profileEditPopup = new PopupWithForm({
             .catch(err => {
                 console.log(err);
             })
-        profileEditPopup.close();
     }
 });
 
@@ -127,6 +95,36 @@ const avatarEditPopup = new PopupWithForm({
             })
     }
 });
+
+function createCard(cardDetails) {
+    const card = new Card(cardDetails, cardTemplateSelector,
+        (name, imageLink) => {
+            imagePopup.open(name, imageLink);
+        },
+        () => {
+            deleteQuestionPopup.open(card);
+        }, (isUserLikeCard) => {
+            if (isUserLikeCard) {
+                api.removeLike(card.cardId)
+                    .then(data => {
+                        card.updateLikeNumber(data.likes.length);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            } else {
+                api.addLike(card.cardId)
+                    .then(data => {
+                        card.updateLikeNumber(data.likes.length)
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+        },
+        user.getUserInfo().profileId);
+    return card.initiateCard();
+}
 
 function copyProfileDataToInputs() {
     profileEditPopup.setInputValues(user.getUserInfo());

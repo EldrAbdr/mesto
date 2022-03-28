@@ -13,11 +13,10 @@ export default class Api {
     }
 
     loadUserInfo() {
-        return fetch(`https://nomoreparties.co/v1/cohort-38/users/me`, {
+        return fetch(`${this._url}/users/me`, {
             headers: this._headers
         })
             .then(this._checkResponse)
-            .then(userInfo => userInfo)
     }
 
     editProfile({profileName, profileProfession}) {
@@ -61,7 +60,6 @@ export default class Api {
             })
         })
             .then(this._checkResponse)
-            .then(data => data)
     }
 
     deleteCardOnServer(cardId) {
